@@ -1,0 +1,196 @@
+- angular2 e um framework totalmente diferente do angularjs (porem alguns conceitos sao mantidos)
+- uma parceria entre google / microsoft
+- open source
+- criado para que o angular pudesse utilizar padroes web como webcomponents e shadow dom
+- trabalha sob o conceito de SPA
+- construido com TS
+
+blocos principais (framework):
+
+- componentes
+- diretivas
+- roteamento
+- serviços
+- template
+- metadata
+- data binding
+- injeçao de dependencia
+
+overview:
+
+1) componentes:
+
+	- template
+	- metadata (que permite o processamento das classes)
+	- data-binding
+	- comportamento da VIEW
+	- e uma diretiva (com template)
+	- pra quem utiliza o angularjs: e a junçao do controller + scope + template
+	- aplicacao orientada a componente
+	- tudo o que temos na aplicacao e um componente
+	- o componente "pai" pode receber outros componentes
+
+2) router:
+
+	- responsavel pelo roteamento na aplicacao (navegacao)
+
+3) diretiva:
+
+	- responsavel por modificar elementos dom e/ou suas diretivas
+
+ANGULAR-CLI:
+
+	- criando um projeto: ng new {nomeDoProjeto} (instala o angular2 com todas as suas dependencias)
+	- dentro da pasta do projeto: ng serve (vai servir o projeto)
+	- setup inicial: module, component (principal), html (view), css
+	- ng serve ja vem com live reload ativo
+	- padrao do styleguide: {?[-]+} (para criaçao dos arquivos)
+	- comando para criar um componente: ng g c {nomeDoComponente} (ele ira criar
+		um diretorio e um componente com o nome)
+		- o comando acima ira criar alguns arquivos: o css, html, spec (para
+			implementacao de testes unitarios da classe do componente) e o componente
+
+BABEL:
+
+	- e um transpiler
+
+	TYPESCRIPT:
+
+	- pode ser utilizado em qualquer projeto typescript
+	- utiliza transpiler (converte ts em js puro).
+	- utilizado com reactjs, angular (ambos usam es2015)
+
+MODULOS:
+
+	- organiza/modulariza a aplicacao
+	- escolha do que expor ao longo da aplicacao
+	- AppModule geralmente e o modulo raiz da aplicacao
+	- FormsModule e quem representa o ngModel do AngularJS
+	- METADADOS:
+		- DECLARATIONS: ondem devem ser listados todos os componentes, diretivas e
+			pipes a serem usados
+		- IMPORTS: outros modulos que desejamos utilizar nesse modulo
+		- PROVIDERS: onde colocamos os servicos a serem utilizados nesse modulo
+		- BOOTSTRAP: SOMENTE encontrado no principal modulo para informar qual sera
+			o componente principal (container/viewport) da aplicacao
+			- modulos de funcionalidades NAO contem o metadado bootstrap
+			- o modulo de funcionalidade NAO contem o BrowserModule e sim o CommonModule
+			- o CommonModule tem as diretivas/pipes mais comuns
+			- para criar um componente dentro de um modulo de funcionalidade, basta usar
+			o comando do angular-cli referenciado o modulo/nome do componente
+			ex.: ng g c cursos/cursos
+		- EXPORTS: serve para exportar determinados componentes/diretivas/pipes para
+			outros modulos.
+		- quando voce exporta um determinado modulo e o importa em um outro modulo,
+			automaticamente voce esta permitindo que aquilo que esta exposto seja
+			utilizado dentro do que esta declarado no modulo que o importou
+	- a ideia de utilizar modulos nos projetos e controlar o que um modulo pode ver
+		e o que outro modulo nao pode ver (alem de organizar)
+
+TEMPLATES:
+
+	- assim como podemos criar os componentes (que geram seletores), podemos tambem
+		gerar templates html
+	- o conceito de interpolacao continua (assim como ja existia no angularjs),
+		usando da mesma conotacao {{}}
+	- template inline so deve ser utilizado caso o seu codigo tenha ate 03 linhas
+		(styleguide do angular)
+
+SERVICES:
+
+	- o codigo que deve estar dentro do componente e apenas de interacao com o
+		usuario. Caso seja necessario receber alguma informaçao, devemos utilizar
+		um service
+	- primariamente nos utilizamos as classes de servico para realizar a conexao
+		com o servidor (normalmente atraves de chamadas http)
+	- Dependency Injection (DI): existente em varios frameworks. E a capacidade de
+		fornecimento de uma instancia de uma classe de maneira automatica (abstraindo
+		alguns passos)
+		- sempre que nos quisermos realizar a injeçao de dependencia, e necessario
+			deixar explicito que determinada classe de servico pode fazer isso, atraves
+			do decorator @Injectable()
+		- no Angular, a injecao de dependencia e feita atraves de construtor
+		- atraves da injeçao de dependencia, basta declarar o serviço no construtor
+			como private que ele ja estara disponivel para utilizacao dentro da classe
+
+HINTS:
+
+	- atom (plugins para verificar)
+		- typescript snippets: adiciona intelisense para criacao de routes, html,
+			ngFor, modules, components, etc [...]
+		- linter: mostra error em tempo de execuçao
+		- pigments: no momento da criacao da cor, ele simplemente apresenta a cor em
+			tempo real dependendo do hexadecimal descrito
+
+INTERPOLATION (DATA BINDING):
+
+	- existem quatro formas possiveis:
+		- INTERPOLATION: pegar o valor de um atributo/metodo e apresentar no template
+		- PROPERTY BINDING: conseguimos ter a saida de um atributo do componente para o template
+			- no property-binding, temos tres formas para realizar a tarefa
+				- 1) usando a interpolacao tradicional ex.: <img src="{{ urlImage }}">
+				- 2) passando colchetes em volta da propriedade (removendo a necessidade
+				- 3) o padrao no angular (mas pouco utilizado) e bind-* ex.: bind-src="teste"
+				naquele ponto de ter que passar a dupla chave) ex.: <img [src]="urlImage">
+				- obs.: nao ha diferenca entre a primeira e a segunda aplicacao, porem a
+				segunda e considerada um syntax sugar
+		- EVENTO: clique no botao, foco em um campo
+		- TWO-WAY DATA BINDING: informaçao transita do componente pro template e vice-versa
+	- para realizar a interpolacao, usar: {{ nome_da_variavel }}
+	- o angular tambem consegue resolver expressoes dentro da interpolacao ex.: {{ 1 + 1 }}
+	- essas expressoes tambem podem ser booleanas
+	- e possivel criar uma variavel diretamente no escopo (dentro de um html),
+		utilizando o # ex.: <select #class></select>
+	- para utilizar metodos como click, change, basta passar o parenteses entre o
+		mesmo (e chamar o metodo de evento) ex.: <select (change)="youMethodGoesHere"></select>
+
+CLASS E STYLE-BINDING:
+
+	- para realizar o class binding, basta que seja utilizada a seguinte sintaxe:
+		[class.${nome_da_classe}]="${condicao_para_que_seja_setado}"
+	- outra forma (mais simples) de realizar essa tarefa e fazer o style binding
+		atraves de interpolacao ex.: <div class="alert {{classe}}"></div>
+	- mais uma alternativa e fazer as mesmas açoes citadas acima, so que para o
+		style (inline) ex.: [style.${nome_da_propriedade}]="${condicao_para_que_seja_setado} ? ${valor_da_propriedade}"
+	- o que ocorre por "debaixo dos panos" quando se seta o [] e o repasse da
+		diretiva bind- ex.: bind-class
+
+EVENT BINDING:
+
+	- escutar eventos e executar alguma rotina
+	- w3c e mdn (pagina) para saber quais eventos podem ser ouvidos.
+	- property bind utilizamos colchetes [] para bind de atributo, no evento
+		utilizamos parenteses ()
+	- keyup: evento quando terminamos de digitar uma tecla. deve ser passado no
+		parametro da funcao mapeada para esse tipo de evento a variavel $event
+	- para os eventos que tambem tem subpropriedades, e possivel fazer a chamada
+		diretamente do template (frontend) ex.: (keyup.enter). Isso e bom para, por
+		exemplo, a acao de salvar quando disparado um enter em um campo.
+	- outra boa pratica para salvar valores de input e utilizar a variavel com #
+		no elemento de input no html, mapeando a passagem de valor do mesmo para o
+		metodo disparado no evento
+	- velhos conhecidos tais como: mouseover, mouseout... tambem podem ser
+		utilizadas nessa modalidade.
+	- por "debaixo dos panos", o que ocorre quando sao setados os parenteses em
+		uma diretiva de evento e o on- ex.: on-click.
+
+	TWO-WAY DATA BINDING
+
+	- quando se utiliza um valor com os {{}}, a direcao e apenas do componente
+		para o template.
+	- quando se utiliza [propriedade]="valor", a direcao tambem e do componente
+		para o template.
+	- quando se usa o parenteses para invocar um evento, a direcao e do template
+		para o componente.
+	- porem, como sabemos, em alguns casos nos desejamos atualizar tanto o
+		template quanto o componente. Isso e o two-way data binding.
+	- a sintaxe para fazer o two-way data binding [(ngModel)]="${variavel}"
+	-  o nome dessa sintaxe e banana-in-a-box, pois sem o ngModel fica parecido
+	 	com uma banana na caixa ex.: [()]
+		pois o colchete faz o bind da propriedade e o parenteses faz o bind do evento
+	- sabendo da informacao anterior, por "debaixo dos panos" o que e setado na
+		verdade e o bindon-ngModel.
+	- o evento que e chamado (a titulo de curiosidade) quando o bind e feito com
+		o parenteses e o nGmodelChange.
+	- sempre lembrando que o modulo que for utilizar o ngModel devera importar o
+		FormsModule, que faz parte do modulo forms do @angular.

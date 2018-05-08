@@ -1,0 +1,9 @@
+<div>
+  cursos component!
+  <span> seja bem vindo ao curso {{ cursoTitle }}</span>
+  <span> Temos as seguintes opçoes: </span>
+</div>
+<ul>
+  <li *ngFor="let curso of cursos">{{ curso }}</li>
+</ul>
+<app-curso-detalhe></app-curso-detalhe>

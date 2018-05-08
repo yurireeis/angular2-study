@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+
+# informa para o compilador que e um componente
+@Component({
+	selector: 'meu-primeiro-component', # boas praticas da web - webcomponents (elementos html personalizados)
+	template: `<p>meu primeiro component com angular2</p>`
+})
+export class MeuPrimeiroComponent { # o export nao e o suficiente para que ele seja visto em outros locais
+
+}
+
+/* dentro do modulo */
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { MeuPrimeiroComponent } from './meu-primeiro/meu-primeiro.component';
+
+@NgModule({
+	declarations: [AppComponent, MeuPrimeiroComponent], # feito a injecao e a importacao sera possivel utilizar o webcomponent na view
+	imports: [BrowserModule, FormsModule, HttpModule],
+	providers: [],
+	bootstrap: [AppComponent]
+})
+export class AppModule {}
