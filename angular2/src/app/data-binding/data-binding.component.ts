@@ -11,6 +11,7 @@ export class DataBindingComponent implements OnInit {
   urlImage: string = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPfA3-9ofx0dZhRt_xEhc4N6YTJLr-6rLKcvHDXX1LO4RkGqr`;
   currentValue: string;
   isOver: boolean;
+  courseName: string = 'Angular';
 
   constructor() { }
 
@@ -20,7 +21,7 @@ export class DataBindingComponent implements OnInit {
 
   buttonIsClicked(): void { alert('Botao Clicado'); }
 
-  onKeyUp(event: KeyboardEvent): void { this.currentValue = (<HTMLInputEvent>event.target).value; }
+  onKeyUp(event: KeyboardEvent): void { console.log(this.currentValue); }
 
   save(value): void { console.log(value); }
 

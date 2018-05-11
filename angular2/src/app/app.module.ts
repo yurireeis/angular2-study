@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { CursosModule } from './cursos/cursos.module';
 import { MeuFormModule } from './meu-form/meu-form.module';
-import { NgModule } from '@angular/core';
+import { DataBindingModule } from './data-binding/data-binding.module';
 import { AppComponent } from './app.component';
-import { DataBindingComponent } from './data-binding/data-binding.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DataBindingComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CursosModule,
-    MeuFormModule
+    MeuFormModule,
+    DataBindingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

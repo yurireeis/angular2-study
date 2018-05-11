@@ -194,3 +194,20 @@ EVENT BINDING:
 		o parenteses e o nGmodelChange.
 	- sempre lembrando que o modulo que for utilizar o ngModel devera importar o
 		FormsModule, que faz parte do modulo forms do @angular.
+
+INPUT/OUTPUT PROPERTIES:
+
+	- para expor uma propriedade para um determinado elemento/seletor e necessario
+		export utilizando o decorator @Input
+	- o decorator Input faz parte do core do Angular
+	- esse decorator devera ficar a esquerda da declaracao da variavel do atributo
+		no componente ao qual ele ia ser recebido. ex.: @Input() nome: string;
+	- assim como no angularjs, podemos setar externamente a variavel com um nome
+		e internamente com outro nome. Isso e possivel ao se setar o nome passando
+		uma string dentro do input. ex.: @Input('name') courseName: string;
+	- outra forma de declarar as input properties e atraves do metadado do
+		componente atraves de um array (obviamente sem esquecer de importar o Input
+		do core do Angular). ex.: inputs: [courseName]
+		- usando a abordagem acima, tambem e possivel expor externamente com outro
+			nome utilizando os metadados. ex.: inputs: ['courseName:name']
+	- uma input property tem objetivos diferentes de uma diretiva
