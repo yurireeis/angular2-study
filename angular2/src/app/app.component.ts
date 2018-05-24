@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-curso';
+  value = 5;
+
+  changeValue(): void { this.value++; }
 }

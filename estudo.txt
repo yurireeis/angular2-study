@@ -211,3 +211,17 @@ INPUT/OUTPUT PROPERTIES:
 		- usando a abordagem acima, tambem e possivel expor externamente com outro
 			nome utilizando os metadados. ex.: inputs: ['courseName:name']
 	- uma input property tem objetivos diferentes de uma diretiva
+
+LIFE-CICLE HOOKS:
+
+	- ngOnChanges: antes e quando o valor do property-binding é utilizado
+	- ngOnInit: quando o component é inicializado
+	- ngDoCheck: a cada ciclo de verificação de mudanças
+	- ngAfterContentInit: após inserir conteúdo externo na view (template)
+	- ngAfterContentChecked: a cada verificação do conteúdo inserido
+	- ngAfterViewChecked: a cada verificação do conteúdo/conteúdo filho
+	- ngOnDestroy: quando o componente é destruído
+
+		- quando um componente é destruído é sempre bom destruir as inscrições que realizamos em um 
+		observable. para isso podemos usar o ngOnDestroy
+		- o ngIf é um exemplo de chamada do onDestroy, pois ele remove o componente
