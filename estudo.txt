@@ -225,3 +225,56 @@ LIFE-CICLE HOOKS:
 		- quando um componente é destruído é sempre bom destruir as inscrições que realizamos em um 
 		observable. para isso podemos usar o ngOnDestroy
 		- o ngIf é um exemplo de chamada do onDestroy, pois ele remove o componente
+
+ACESSO AO DOM/TEMPLATE COM VIEWCHILD:
+
+	- o acesso não se restringe apenas ao elementos html, mas também podem ser acessados os 
+	métodos/propriedades de um componente.
+	- o decorator @ViewChild também faz parte do pacote @angular/core
+	- deve ser passado como metadado/parâmetro ao ViewChild a variável que corresponde ao elemento 
+	que será acessado.
+	- o tipo do element ao ser referenciado pela ViewChild é o ElementRef
+	- dentro do ElementRef nós teremos o NativeElement, que é a referência ao elemento propriamente dito.
+	- para acessar diretamente o elemento, basta tipar a variável diretamente como ElementRef
+
+ANGULAR-CLI:
+
+	- para utilizar no windows/linux, é necessário instalar o pacote angular-cli de maneira global 
+	(ng i -g @angular/angular-cli)
+	- requer o node >= 4
+	- criando o projeto: ng new ${nome_do_projeto}
+		- a criação do nome do projeto segue o mesmo padrão do javascript, ou seja, como exemplo, não é 
+		possível criar um projeto com números no começo do nome
+	- ng serve para servir o projeto
+	- a diferença do ng init e do ng new é que o ng new cria a pasta do projeto, em contrapartida o ng init 
+	inicializa o projeto em uma pasta já existente.
+	- para criar componentes, serviços, pipes, nós vamos usar o ng generate (ng g) e o tipo da classe 
+	desejado (component - s, service - s, pipe - p)
+	- caso você crie um componente dentro de uma outra pasta, ele já inclui um modulo, arquivo css, arquivo ts 
+	e template (html)
+	- o bom de utilizar o angular-cli é que ele já mantém o projeto no styleguide do angular
+	- também é possível criar classes, interfaces e enum com o angular-cli
+	- a ferramenta angular-cli já tem suporte para pré-processadores
+	- para usar um determinado pré-processador, você pode:
+		- inicializar o projeto setando o pré-processador (ng new ${nome_do_projeto} --style=sass)
+		- caso o projeto já esteja em andamento, também é possível setar (ng set defauls.styleExt scss)
+			- para projetos em andamento, os arquivos anteriores em .css e mudar na mão.
+			- para novos componentes em um projeto em andamento, ele já vai gerar no formato do 
+			pré-processador automaticamente.
+	- o arquivo pré-processado ficará na pasta dist
+	- o angular-cli também fornece ferramentas para testes (unitários e e2e) e lint
+		- ng lint para análise de código estático
+			- ele fará a verificação se o seu código está de acordo com o styleguide, se tem espaços em 
+			branco, ponto-e-vírgula a mais/menos, entre outras questões
+			- o que roda por baixo é o jslint
+		- ng test para testes unitários com o jasmine
+			- o jasmine é orientado a comportamento (BDD), mas também pode ser utilizado com o TDD
+			- testes unitários são bons porque permitem que você teste pequenas partes do seu código
+			- no arquivo tests.ts está definido que os testes (caso disparado o comando ng test) devem 
+			rodar em observação a todos os arquivos specs.ts do projeto.
+			- o karma (plugin de testes) fará com que os testes unitários rodem em todos os navegadores
+		- ng e2e para testes end-to-end/integração com o protractor
+			- o arquivo para configuração dos testes end-to-end/integração é o app.e2e-spec, que fica 
+			dentro do diretório e2e/src por padrão
+
+

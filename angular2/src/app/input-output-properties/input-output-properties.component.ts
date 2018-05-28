@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-input-output-properties',
@@ -7,11 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InputOutputPropertiesComponent implements OnInit {
 
-  @Input('name') courseName: string;
+  @Input() value = 0;
+
+  // @ViewChild('inputField') fieldValueInput: HTMLElement;
+  @ViewChild('inputField') fieldValueInput: ElementRef;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  increment(): void {
+    console.log(this.fieldValueInput);
+    this.value++;
   }
 
+  decrement(): void { this.value--; }
 }

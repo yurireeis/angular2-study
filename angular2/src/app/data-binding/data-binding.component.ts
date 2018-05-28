@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataBindingComponent implements OnInit {
 
-  url: string = `https://yuri.com`;
-  urlImage: string = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPfA3-9ofx0dZhRt_xEhc4N6YTJLr-6rLKcvHDXX1LO4RkGqr`;
+  url = `https://yuri.com`;
+  urlImage = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlPfA3-9ofx0dZhRt_xEhc4N6YTJLr-6rLKcvHDXX1LO4RkGqr`;
   currentValue: string;
   isOver: boolean;
-  courseName: string = 'Angular';
+  value = 0;
 
   constructor() { }
 
