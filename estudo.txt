@@ -239,6 +239,31 @@ ACESSO AO DOM/TEMPLATE COM VIEWCHILD:
 
 ANGULAR-CLI:
 
+	- a estrutura do angular-cli
+		- cria toda a estrutura do projeto
+		- inicializa um repositório git (além de fazer o commit inicial)
+		- instala as dependências do node para se trabalhar com o angularx
+		- cria arquivo de testes unitários, css, html e ts do component
+		- cria modulos, classes, pipes e serviços
+		- cria uma estrutura para testes e2e (protractor), unitários (jasmine/karma) e lint
+		- também fornece comandos para build de produção
+		- o angular-cli utiliza o ember-cli por debaixo dos panos
+		- os DIRETÓRIOS da estrutura padrão são:
+			- config: diretório para configurações de deploy/build/teste
+			- dist: diretório que recebe o build da aplicação (fica no ignore)
+			- e2e: diretório dos testes end-2-end
+			- node_modules: onde ficam as dependências do projeto (e as instaladas via npm)
+			- src: onde fica o código-fonte da aplicação
+			- angular-cli.json: contem informações do projeto em si
+			- tslint.json: configurações para o lint da aplicação
+			- public: só contém um arquivo de ignore (pode ser usado por ex.: assets)
+		- os ARQUIVOS da estrutura padrão são:
+			- index.html: ponto de entrada do app
+			- main.ts: faz bootstrap da aplicação
+			- index.ts: faz o export de todos os módulos
+			- polyfills: faz a transpilação do ES6 para o ES2008 (ES5), ou seja, são libs para 
+			realizar essa tarefa
+			- typings: arquivo gerenciador TS 
 	- para utilizar no windows/linux, é necessário instalar o pacote angular-cli de maneira global 
 	(ng i -g @angular/angular-cli)
 	- requer o node >= 4
@@ -276,5 +301,30 @@ ANGULAR-CLI:
 		- ng e2e para testes end-to-end/integração com o protractor
 			- o arquivo para configuração dos testes end-to-end/integração é o app.e2e-spec, que fica 
 			dentro do diretório e2e/src por padrão
+		- dependencies/devDependencies
+			- dependencies: necessária para rodar a aplicação
+			- dev-dependencies: além das libs necessárias (que serão incluídas), libs necessárias para 
+			desenvolver a aplicação
+
+	ANGULAR-CLI (GERANDO O BUILD DE PRODUÇÃO)
+		- ng build (gera o build de desenvolvimento)
+			- vai ser gerado no dist
+			- a diferença do build de produção para o de desenvolvimento é que o build de dev 
+			NÃO é minificado e NEM ofuscado (uglify)
+			- pelas razões acima, ainda é um código passível de debug
+		- ng build --prod (gera o build para produção)
+		- os arquivos, além de serem minificados e ofuscados, também recebem um número no nome 
+		para controle de cache
+
+	ANGULAR-CLI (INSTALANDO DEPENDÊNCIAS)
+		- para instalação de bibliotecas terceiras, segue o padrão do angularjs
+		- para injetar as dependências de fato, é necessário ir até o arquivo angular-cli.json e:
+			- informar o caminho do(s) arquivo(s) JS na seção scripts.
+			- informar o caminho do(s) arquivo(s) CSS na seção style.
+		- dica: separar nas importações o que é do angular, o que é importação de terceiros e o que é próprio 
+		com uma quebra de linha.
+		- dica 2: para utilizar bibliotecas de terceiros, é necessário instalar os types da mesma (--save-dev)
+		ex.: lodash - npm install --save lodash e npm install --save-dev @lodash/types
+
 
 
