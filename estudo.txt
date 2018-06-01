@@ -326,5 +326,38 @@ ANGULAR-CLI:
 		- dica 2: para utilizar bibliotecas de terceiros, é necessário instalar os types da mesma (--save-dev)
 		ex.: lodash - npm install --save lodash e npm install --save-dev @lodash/types
 
-
-
+	DIRETIVAS
+		- são exemplos de diretivas: ngFor, ngSubmit...
+		- podemos dizer que os componentes são diretivas com templates 
+		- existem dois tipos
+			- ESTRUTURAIS: são utilizadas para modificar a estrutura do DOM (ngFor, ngIf...)
+			- ATRIBUTOS: não modificam a estrutura do DOM, mas interagem o elemento ao qual foram aplicadas (ngClass, ngStyle...)
+		- *ngIf:
+			- é uma condicional que pode ser adicionada no template html
+			- sempre que o ngIf for negativo, o elemento é destruído 
+			- sempre cuidar com a questão de performance, pois a destruição dos elementos DOM tomam 
+			muito da performance 
+			- o hidden é um property-binding [hidden], ou seja, o elemento já está renderizado e apresentá-lo 
+			ou não será uma questão de css
+			- quando usar?
+				- quando forem itens que envolverem segurança (ACL)
+				- quando o elemento possui uma árvore no DOM muito extensa
+		- *ngSwitch, *ngSwitchcase, *ngSwitchDefault
+			- o ngSwitch vem como property binding para ficar escutando uma determinada variável 
+			(que será usada para determinar o case selecionado)
+			- o ngSwitchcase vem como uma diretiva em si com um determinado case ex.: 'home'
+			- *ngSwitchDefault é usado para o case padrão
+			- quando usar?
+				- quando houver vários casos de if ~ else
+		- *ngFor
+			- permite que possamos iterar um array 
+			- para usar o *ngFor é necessário instanciar uma variável seguido do array responsável por ela 
+			ex.: let course of courses
+			- também é possível passar o index da iteração instanciando uma variável na sequência para que 
+			possa receber esse valor ex.: let course of courses, let i = index 
+		- * e <template> (razão de uso)
+			- quando o angular utiliza o *, na verdade ele está instanciando um template
+			- quando renderiza o template acima citado, ele transforma a expressão com asterisco em um property binding
+		- [ngClass]
+			- essa diretiva é instanciada como um property-binding, pois o que ela faz é praticamente definir 
+			através de um objeto qual será a classe css a ser renderizada

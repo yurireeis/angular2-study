@@ -1,0 +1,14 @@
+<div class="column">
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="nav navbar-nav">
+      <a class="nav-item nav-link" [class.active]="tab === 'home'" (click)="tab = 'home'">Home</a>
+      <a class="nav-item nav-link" [class.active]="tab === 'features'" (click)="tab = 'features'">Features</a>
+      <a class="nav-item nav-link" [class.active]="tab === 'pricing'" (click)="tab = 'pricing'">Pricing</a>
+    </div>
+  </nav>
+</div>
+<div class="column" [ngSwitch]="tab">
+  <p *ngSwitchDefault>Modo home ativo</p>
+  <p *ngSwitchCase="'features'">Modo features ativo</p>
+  <p *ngSwitchCase="'pricing'">Modo pricing ativo</p>
+</div>
