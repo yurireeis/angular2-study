@@ -397,4 +397,15 @@ ANGULAR-CLI:
 			- assim como o ElementRef, é necessário que seja feita a injeção de dependência 
 			- o Renderer recebe o ElementRef.nativeElement, porém faz a operação de uma maneira segura
 
+		- HostListener/HostBinding
+			- a classe HostListener:
+				- serve para que o elemento ao qual ela foi setada seja 'escutado' (elemento hospedeiro)
+				- ele é um tipo de metadado (@HostListener)
+				- o parâmetro que este metadado recebe primeiro é o tipo de evento ao qual ele escutará
+				- logo na sequência é definido o método que determina qual será o comportamento no evento ao qual 
+				se está escutando
+			- a class HostBinding:
+				- serve para fazer o binding de uma determinado atributo do elemento em si
+				- é declarado como um metadado, com o valor esperado sendo uma string.
+			
 
