@@ -1,0 +1,7 @@
+<p>Description: {{ task.description }}</p>
+using ternary
+<p>Responsible: {{ task.responsible? task.responsible.name : 'not informed' }}</p>
+using elvis operator
+<p>Responsible: {{ task.responsible?.user | json }} (shows object)</p>
+using elvis operator with nested info
+<p>Responsible: {{ task.responsible?.user?.name }}</p>

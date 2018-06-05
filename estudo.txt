@@ -361,3 +361,12 @@ ANGULAR-CLI:
 		- [ngClass]
 			- essa diretiva é instanciada como um property-binding, pois o que ela faz é praticamente definir 
 			através de um objeto qual será a classe css a ser renderizada
+		- [ngStyle]
+			- tem comportamento semelhante ao NgClass, onde você poderá definir de maneira simples diversas condições para 
+			aplicar estilos do css
+
+		- operador Elvis
+			- fornece um meio de navegação segura entre os componentes
+			- utiliza a interrogação contatenada com o . e a propriedade a ser validada (se nula ou não)
+			- evita o 'estouro' de exceções na view
+

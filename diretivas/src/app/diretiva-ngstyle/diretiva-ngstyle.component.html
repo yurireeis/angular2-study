@@ -1,0 +1,11 @@
+<h5>Styles com diretiva [ngStyle]</h5>
+<button [ngStyle]="{
+  'background-color': (active ? 'blue': 'gray'),
+  'color': (active ? 'white': 'black'),
+  'font-weight': (active ? 'bold': 'normal'),
+  'font-size': (active ? fontSize + px: '10px')
+  }"
+  (click)="activeOrDeactive();">{{ active ? 'Deactivate': 'Activate' }}</button>  
+<br>
+<input type="text" [(ngModel)]="fontSize">
+Change 'active' attribute
