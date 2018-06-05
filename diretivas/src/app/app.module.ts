@@ -11,6 +11,8 @@ import { DiretivaNgstyleComponent } from './diretiva-ngstyle/diretiva-ngstyle.co
 import { CommonModule } from '@angular/common';
 import { OperadorElvisComponent } from './operador-elvis/operador-elvis.component';
 import { ExampleNgContentComponent } from './example-ng-content/example-ng-content.component';
+import { YellowBackgroundDirective } from './shared/yellow-background.directive';
+import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ExampleNgContentComponent } from './example-ng-content/example-ng-conte
     DiretivaNgclassComponent,
     DiretivaNgstyleComponent,
     OperadorElvisComponent,
-    ExampleNgContentComponent
+    ExampleNgContentComponent,
+    CustomDirectivesComponent,
+    YellowBackgroundDirective
   ],
   imports: [
     BrowserModule,

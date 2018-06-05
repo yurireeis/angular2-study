@@ -377,4 +377,24 @@ ANGULAR-CLI:
 			- para definir em qual local ele será renderizado, é feito o uso de seletores (propriedade selector)
 			- caso seja setado a classe em duplicidade com um determinado seletor no momento em que for 
 			instanciado o componente, o valor será concatenado.
+		
+		- Criando uma diretiva de atributo (conceitos ElementRef e Renderer)
+			- ElementRef: faz referência ao elemento no DOM 
+			- diretiva: 
+				- é um componente sem template
+				- cuida apenas da parte lógico
+					- tipo:
+						- estruturais: ngIf, ngShow, ngSwitch, ngFor (muda a estrutura)
+						- atributos: ngClass, ngStyle (muda apenas a aparência)
+			- assim como os components, as directives também ficam alocadas na parte de declarations do 
+			module
+			- quando usamos o objeto ElementRef, podemos acessar o nativeElement, e assim realizar as alterações 
+			desejadas em nosso html
+			- se for necessário restringir a aplicação da diretiva a um determinado elemento, basta botar o nome 
+			da tag na frente do seletor da diretiva ex.: 'p[appYellowBackground]'
+			- o Renderer é um renderizador e também pode interagir com o DOM
+			- utilizá-lo (e não somente o ElementRef) pode evitar ataques de 'cross-scripting'
+			- assim como o ElementRef, é necessário que seja feita a injeção de dependência 
+			- o Renderer recebe o ElementRef.nativeElement, porém faz a operação de uma maneira segura
+
 
