@@ -370,3 +370,11 @@ ANGULAR-CLI:
 			- utiliza a interrogação contatenada com o . e a propriedade a ser validada (se nula ou não)
 			- evita o 'estouro' de exceções na view
 
+		- [ngContent]
+			- no angularjs era conhecido como ng-transclude
+			- funciona quando você julgar que não é possível passar através de uma property binding no 
+			componente (@Input)
+			- para definir em qual local ele será renderizado, é feito o uso de seletores (propriedade selector)
+			- caso seja setado a classe em duplicidade com um determinado seletor no momento em que for 
+			instanciado o componente, o valor será concatenado.
+
