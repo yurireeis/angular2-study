@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomDirectivesComponent implements OnInit {
 
+  isShow = false;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  showCourses(): void { this.isShow = !this.isShow; }
 }

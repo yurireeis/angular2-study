@@ -1,4 +1,14 @@
+<h5>directive with atribute interaction using ElementRef and Renderer</h5>
 <p appYellowBackground>Text with yellow background</p>
 <button appYellowBackground>Test</button>
+<hr>
+<h5>directive using HostListener/HostBinding</h5>
 <p appHighlightMouse>Highlight text when mouse is over</p>
+<hr>
+<h5>directive using input properties</h5>
 <p [appHighlight]="'red'" [defaultColor]="'gray'">Highlight with custom colors</p>
+<hr>
+<h5>custom structural directive (ngElse)</h5>
+<div *ngIf="isShow">Courses list here</div>
+<div *appNgElse="isShow">No courses to show</div>
+<button (click)="showCourses();">Toogle course list</button>

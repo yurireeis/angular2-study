@@ -414,4 +414,17 @@ ANGULAR-CLI:
 			- quando nomeamos o input com o mesmo nome da diretiva, então o angular irá entender que na 
 			inicialização da diretiva aquele valor corresponderá ao input ex.: <p [appHighlight]="'red'"></p>
 			obs.: isso pode violar uma regra do lint de rename de property
-
+		
+		- Diretiva de estrutura customizada
+			- para criar uma diretiva de estrutura, segue=se os mesmos passos de criação de uma diretiva 
+			de atributo
+			- definimos o nome da diretiva setando também o valor da variável no input ex.: @Input() ngElse;
+			- para setar, utitilizamos os set do angularx ex.: @Input() set ngElse() {}
+			- dentro desta função, define-se a lógica desejada para a diretiva estrutural
+			- para interagir com a estrutura, são utilizadas as classes TemplateRef e ViewContainerRef
+			- o TemplateRef permite:
+				- que seja definida a interação com o template em si (que é gerado no uso da diretiva)
+				- o TemplateRef pede um tipo de argumento no construtor, que deverá ser o elemento permitido para 
+				injeção da diretiva. Caso deseje um comportamento para qualquer elemento, basta setar any
+			- o ViewContainerRef permite:
+				- que seja definido o comportamento do conteúdo que será renderizado em si dentro da diretiva
