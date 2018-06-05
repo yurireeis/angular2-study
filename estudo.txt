@@ -407,5 +407,11 @@ ANGULAR-CLI:
 			- a class HostBinding:
 				- serve para fazer o binding de uma determinado atributo do elemento em si
 				- é declarado como um metadado, com o valor esperado sendo uma string.
-			
+
+		- Diretivas c/ Input e property binding
+			- assim como nos componentes, também é possível receber inputs em diretivas
+			- os lifecicle hooks também são válidos para as diretivas 
+			- quando nomeamos o input com o mesmo nome da diretiva, então o angular irá entender que na 
+			inicialização da diretiva aquele valor corresponderá ao input ex.: <p [appHighlight]="'red'"></p>
+			obs.: isso pode violar uma regra do lint de rename de property
 
